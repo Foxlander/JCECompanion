@@ -60,6 +60,27 @@ header {
   padding: 8px 0;
 }
 
+.back-btn {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text-sub);
+  text-decoration: none;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: background var(--t), border-color var(--t), color var(--t);
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.back-btn:hover,
+.back-btn:active {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 .ring-icon {
   font-size: 1.6rem;
   flex-shrink: 0;

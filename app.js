@@ -72,10 +72,12 @@ function renderStep(step) {
       .filter(t => t !== "Action libre")
       .map(t => `<span class="action-tag">${t}</span>`)
       .join("");
+    const actionIcon = step.label.startsWith("⚡") ? "⚡" : "↩";
+    const actionTitle = step.label.startsWith("⚡") ? "Action disponible" : "Fenêtre d'Action";
     item.innerHTML = `
-      <div class="action-icon">↩</div>
+      <div class="action-icon">${actionIcon}</div>
       <div class="action-body">
-        <span class="action-title">Fenêtre d'Action</span>
+        <span class="action-title">${actionTitle}</span>
         ${tagsHtml ? `<div class="action-tags">${tagsHtml}</div>` : ""}
         <p class="action-detail">${step.detail}</p>
       </div>
@@ -163,12 +165,14 @@ function showElimination() {
 // ============================================================
 //  PERSISTANCE
 // ============================================================
+const STORAGE_KEY = document.title.includes("Marvel") ? "marvel_companion" : "sdajce";
+
 function saveState() {
-  try { localStorage.setItem("sdajce", JSON.stringify({ round, counters })); } catch(e) {}
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify({ round, counters })); } catch(e) {}
 }
 function loadState() {
   try {
-    const s = JSON.parse(localStorage.getItem("sdajce") || "null");
+    const s = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
     if (!s) return;
     if (s.round)    round    = s.round;
     if (s.counters) counters = { ...counters, ...s.counters };

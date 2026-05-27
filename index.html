@@ -3,51 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-  <title>SDA JCE — Companion de Jeu</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>JCE Companion</title>
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div class="ring-icon">💍</div>
-      <div class="header-title">
-        <h1>Le Seigneur des Anneaux</h1>
-        <p class="subtitle">Jeu de Cartes Évolutif</p>
-      </div>
-
-      <div class="counters-stack">
-        <div class="counter-block">
-          <span class="counter-label">☠️ Menace</span>
-          <div class="counter-controls">
-            <button class="counter-btn" ontouchstart="" onclick="changeCounter('threat', -1)">−</button>
-            <span class="counter-value" id="val-threat">0</span>
-            <button class="counter-btn" ontouchstart="" onclick="changeCounter('threat', 1)">+</button>
-          </div>
-          <span class="counter-hint">/ 50</span>
-        </div>
-        <div class="counter-block">
-          <span class="counter-label">🗺️ Quête</span>
-          <div class="counter-controls">
-            <button class="counter-btn" ontouchstart="" onclick="changeCounter('quest', -1)">−</button>
-            <span class="counter-value" id="val-quest">0</span>
-            <button class="counter-btn" ontouchstart="" onclick="changeCounter('quest', 1)">+</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <div class="round-indicator">
-      <button class="round-btn" ontouchstart="" onclick="changeRound(-1)">‹</button>
-      <span>Tour <span id="roundNum">1</span></span>
-      <button class="round-btn" ontouchstart="" onclick="changeRound(1)">›</button>
+  <main class="home">
+    <div class="home-header">
+      <h1>🃏 JCE Companion</h1>
+      <p>Choisissez votre jeu</p>
     </div>
 
-    <div class="phases-container" id="phasesContainer"></div>
+    <div class="game-grid">
+
+      <a href="lotr.html" class="game-card lotr">
+        <div class="game-icon">💍</div>
+        <div class="game-info">
+          <span class="game-title">Le Seigneur des Anneaux</span>
+          <span class="game-sub">Jeu de Cartes Évolutif</span>
+        </div>
+        <span class="game-arrow">›</span>
+      </a>
+
+      <a href="marvel.html" class="game-card marvel">
+        <div class="game-icon">🛡️</div>
+        <div class="game-info">
+          <span class="game-title">Marvel Champions</span>
+          <span class="game-sub">Le Jeu de Cartes</span>
+        </div>
+        <span class="game-arrow">›</span>
+      </a>
+
+    </div>
   </main>
-
-  <script src="data.js"></script>
-  <script src="app.js"></script>
 </body>
 </html>
