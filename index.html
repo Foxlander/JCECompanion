@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SDA JCE — Companion de Jeu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="ring-icon">💍</div>
+      <div>
+        <h1>Le Seigneur des Anneaux</h1>
+        <p class="subtitle">Jeu de Cartes Évolutif — Aide de Jeu</p>
+      </div>
+    </div>
+
+    <div class="counters-bar">
+
+      <div class="counter-block">
+        <span class="counter-label">☠️ Menace</span>
+        <div class="counter-controls">
+          <button class="counter-btn" onclick="changeCounter('threat', -1)">−</button>
+          <span class="counter-value" id="val-threat">0</span>
+          <button class="counter-btn" onclick="changeCounter('threat', 1)">+</button>
+        </div>
+        <span class="counter-hint">/ 50</span>
+      </div>
+
+      <div class="counter-divider"></div>
+
+      <div class="counter-block">
+        <span class="counter-label">🗺️ Quête</span>
+        <div class="counter-controls">
+          <button class="counter-btn" onclick="changeCounter('quest', -1)">−</button>
+          <span class="counter-value" id="val-quest">0</span>
+          <button class="counter-btn" onclick="changeCounter('quest', 1)">+</button>
+        </div>
+        <span class="counter-hint">progrès</span>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <div class="round-indicator">
+      <button class="round-btn" onclick="changeRound(-1)">‹</button>
+      <span>Tour <span id="roundNum">1</span></span>
+      <button class="round-btn" onclick="changeRound(1)">›</button>
+    </div>
+
+    <div class="phases-container" id="phasesContainer"></div>
+  </main>
+
+<script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
