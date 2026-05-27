@@ -56,7 +56,8 @@ header {
   gap: 12px;
   max-width: 760px;
   margin: 0 auto;
-  height: 56px;
+  min-height: 56px;
+  padding: 8px 0;
 }
 
 .ring-icon {
@@ -85,12 +86,18 @@ header h1 {
   text-transform: uppercase;
 }
 
-/* ---- Compteur menace (dans le header) ---- */
+/* ---- Compteurs empilés (dans le header) ---- */
+.counters-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
 .counter-block {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-shrink: 0;
 }
 
 .counter-label {
@@ -453,13 +460,14 @@ main {
 /* --- Mobile (≤ 480px) --- */
 @media (max-width: 480px) {
   header          { padding: 0 12px; }
-  .header-inner   { height: 52px; gap: 8px; }
+  .header-inner   { gap: 8px; padding: 6px 0; }
   .ring-icon      { font-size: 1.35rem; }
   header h1       { font-size: 0.88rem; }
   .subtitle       { display: none; }
-  .counter-label  { display: none; }
+  .counter-label  { font-size: 0.65rem; }
   .counter-hint   { display: none; }
-  .counter-value  { font-size: 1.2rem; min-width: 30px; }
+  .counter-value  { font-size: 1.1rem; min-width: 28px; }
+  .counters-stack { gap: 3px; }
 
   main              { padding: 12px 10px 50px; }
   .round-indicator  { margin-bottom: 12px; font-size: 0.78rem; }

@@ -3,7 +3,7 @@
 // ============================================================
 
 let round = 1;
-let counters = { threat: 0 };
+let counters = { threat: 0, quest: 0 };
 
 document.addEventListener("DOMContentLoaded", () => {
   loadState();
@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   updateRoundDisplay();
   updateCounterDisplay("threat");
   updateCounterDisplay("quest");
+
 });
 
 // ============================================================
@@ -132,7 +133,8 @@ function updateRoundDisplay() {
 //  COMPTEURS (Menace & Quête)
 // ============================================================
 function changeCounter(key, delta) {
-  counters[key] = Math.max(0, Math.min(50, (counters[key] || 0) + delta));
+  const max = key === "threat" ? 50 : 9999;
+  counters[key] = Math.max(0, Math.min(max, (counters[key] || 0) + delta));
   updateCounterDisplay(key);
   if (key === "threat" && counters.threat >= 50) showElimination();
   saveState();
